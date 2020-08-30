@@ -1,0 +1,135 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+  margin: 0;
+  background-color: #333;
+  color: #fff;
+  overflow: hidden;
+}
+
+input[type="submit"] {
+  width: 100%;
+  height: 100vh;
+  font-size: 5em;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: #333;
+  color: #fff;
+  border: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  background-color: yellow;
+  display: flex;
+}
+
+.header .players {
+  flex-grow: 1;
+  display: flex;
+}
+
+.header .players .player {
+  height: 50px;
+  width: 150px;
+  border-right: 3px solid gray;
+  background-color: orange;
+}
+
+.header .timer {
+  width: 200px;
+  height: 50px;
+  background-color: pink;
+}
+
+.card {
+  width: 100px;
+  height: 150px;
+}
+
+.card.card-blue {
+  background-color: blue;
+}
+
+.card.card-red {
+  background-color: red;
+}
+
+.card.card-green {
+  background-color: green;
+}
+
+.card.card-purple {
+  background-color: purple;
+}
+
+.card.card-yellow {
+  background-color: yellow;
+}
+
+.card.card-door {
+  background-color: brown;
+}
+
+.dungeon-boss {
+  background-color: red;
+  height: calc(60vh - 25px);
+  width: 100%;
+}
+
+.dungeon-boss .card {
+  height: calc(60vh - 25px - 30px);
+  margin: 15px;
+  position: fixed;
+  right: 15px;
+  width: 40vw;
+}
+
+.hero {
+  width: 100%;
+  height: calc(40vh - 25px);
+  display: flex;
+  justify-content: space-between;
+}
+
+.hero .special-ability {
+  width: 200px;
+  background-color: white;
+  height: calc(40vh - 25px);
+  cursor: pointer;
+}
+
+.hero .hand {
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(100vw - 200px);
+  padding: 0 10px;
+}
+
+.hero .hand .card {
+  z-index: 2;
+  height: 150px;
+  width: 100px;
+  margin: 20px 10px;
+  cursor: pointer;
+}
