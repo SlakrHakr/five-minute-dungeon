@@ -20,14 +20,23 @@ class GamesController < ApplicationController
 
   def generate_initial_game
     {
-      boss: 99,
-      doors: [71, 123, 12, 87, 230],
+      boss: params[:boss],
+      doors: generate_initial_doors,
       players: [
         {
-          hero: 86,
-          hand: [2, 17, 89]
+          hero: params[:hero],
+          name: params[:name],
+          hand: general_initial_hand
         }
       ]
     }
+  end
+
+  def general_initial_hand
+    [2, 17, 89]
+  end
+
+  def generate_initial_doors
+    [71, 123, 12, 87, 230]
   end
 end
