@@ -16,7 +16,17 @@ class GamesController < ApplicationController
     @game[:id] = params[:id]
   end
 
+  def update
+    raise ActionController::RoutingError.new('Not Found') unless request.xhr?
+
+    render json: update_game
+  end
+
   private
+
+  def update_game
+    Rails.cache.read("games/#{params[:id]}")
+  end
 
   def generate_initial_game
     {

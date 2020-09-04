@@ -5,8 +5,10 @@
     .player
   .timer
 .dungeon-boss
-  .card.card-door
-    3
+  - 30.times do |index|
+    .card.card-door{ class: ('active' if index == (30 - 1)),
+                     style: "z-index: #{index}; left: #{60.to_f/30 * index}vw" }
+      = index + 1
 .hero
   .special-ability
   .hand

@@ -88,6 +88,12 @@ input[type="submit"] {
 
 .card.card-door {
   background-color: brown;
+  border: 1px solid black;
+}
+
+.card.card-door.active {
+  background-color: white;
+  color: black;
 }
 
 .dungeon-boss {
@@ -100,7 +106,6 @@ input[type="submit"] {
   height: calc(60vh - 25px - 30px);
   margin: 15px;
   position: fixed;
-  right: 15px;
   width: 40vw;
 }
 
