@@ -13,5 +13,5 @@
   .special-ability
   .hand
     - @game.players.first.hand.each do |card|
-      .card{ class: "card-#{card.type} card_#{card.id}" }
+      .card{ class: "card-#{card.type}", data: { id: "#{card.type}_#{card.id}" } }
         = card.id

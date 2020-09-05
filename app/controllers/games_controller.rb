@@ -24,6 +24,8 @@ class GamesController < ApplicationController
   private
 
   def update_game
+    @game.doors.last.attack(Action.new(id: params[:selected].split('_')[0],
+                                       type: params[:selected].split('_')[1]))
     Rails.cache.read("games/#{params[:id]}")
   end
 end
