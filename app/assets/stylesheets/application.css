@@ -66,23 +66,23 @@ input[type="submit"] {
   height: 150px;
 }
 
-.card.card-blue {
+.card.card-scroll {
   background-color: blue;
 }
 
-.card.card-red {
+.card.card-sword {
   background-color: red;
 }
 
-.card.card-green {
+.card.card-arrow {
   background-color: green;
 }
 
-.card.card-purple {
+.card.card-jump {
   background-color: purple;
 }
 
-.card.card-yellow {
+.card.card-shield {
   background-color: yellow;
 }
 

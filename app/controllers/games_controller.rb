@@ -2,9 +2,9 @@ class GamesController < ApplicationController
   def new; end
 
   def create
-    game_id = SecureRandom.urlsafe_base64
-    Rails.cache.write("games/#{game_id}", generate_initial_game)
-    redirect_to game_path(game_id)
+    game = Game.new
+    Rails.cache.write("games/#{game.id}", game)
+    redirect_to game_path(game.id)
   end
 
   def show
@@ -13,7 +13,6 @@ class GamesController < ApplicationController
     end
 
     @game = Rails.cache.read("games/#{params[:id]}")
-    @game[:id] = params[:id]
   end
 
   def update
@@ -26,27 +25,5 @@ class GamesController < ApplicationController
 
   def update_game
     Rails.cache.read("games/#{params[:id]}")
-  end
-
-  def generate_initial_game
-    {
-      boss: params[:boss],
-      doors: generate_initial_doors,
-      players: [
-        {
-          hero: params[:hero],
-          name: params[:name],
-          hand: general_initial_hand
-        }
-      ]
-    }
-  end
-
-  def general_initial_hand
-    [2, 17, 89]
-  end
-
-  def generate_initial_doors
-    [71, 123, 12, 87, 230]
   end
 end

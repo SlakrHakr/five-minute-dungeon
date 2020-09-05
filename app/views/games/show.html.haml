@@ -5,16 +5,13 @@
     .player
   .timer
 .dungeon-boss
-  - 30.times do |index|
-    .card.card-door{ class: ('active' if index == (30 - 1)),
-                     style: "z-index: #{index}; left: #{60.to_f/30 * index}vw" }
-      = index + 1
+  - @game.doors.each_with_index do |door, index|
+    .card.card-door{ class: ('active' if index == (@game.doors.count - 1)),
+                     style: "z-index: #{index}; left: #{60.to_f/@game.doors.count * index}vw" }
+      = door.id
 .hero
   .special-ability
   .hand
-    .card.card-purple
-      4
-    .card.card-yellow
-      5
-    .card.card-purple
-      6
+    - @game.players.first.hand.each do |card|
+      .card{ class: "card-#{card.type} card_#{card.id}" }
+        = card.id

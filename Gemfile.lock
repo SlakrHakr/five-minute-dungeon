@@ -76,6 +76,7 @@ GEM
     ffi (1.13.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    haikunator (1.1.0)
     haml (5.1.2)
       temple (>= 0.8.0)
       tilt
@@ -206,6 +207,7 @@ DEPENDENCIES
   binding_of_caller
   bootsnap (>= 1.4.2)
   byebug
+  haikunator
   haml-rails
   jbuilder (~> 2.7)
   listen (~> 3.2)
