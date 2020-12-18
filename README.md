@@ -1,24 +1,7 @@
-# README
+# Five Minute Dungeon
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An attempt to implement a "play online with friends" version of the awesome board game:
+https://www.amazon.com/Spin-Master-Games-Minute-Dungeon/dp/B01N4PN3ZP
 
-Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![current game layout progress](docs/wip_screenshot.png)
