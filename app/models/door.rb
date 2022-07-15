@@ -34,12 +34,12 @@ class Door
   end
 
   def attack(action)
-    raise 'Invalid Action' unless valid_action?
+    raise 'Invalid Action' unless valid_action?(action)
 
-    @attributes[:actions] = if defeat?
+    @attributes[:actions] = if defeat_action?(action)
                               []
                             else
-                              @attributes[:actions].delete_at(@attributes[:actions].index(action))
+                              @attributes[:actions].delete_at(@attributes[:actions].map(&:type).index(action.type))
                             end
   end
 
@@ -51,6 +51,6 @@ class Door
   end
 
   def valid_action?(action)
-    defeat_action? || @attributes[:actions].include?(action)
+    defeat_action?(action) || @attributes[:actions].map(&:type).include?(action.type)
   end
 end

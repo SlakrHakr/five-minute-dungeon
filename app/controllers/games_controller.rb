@@ -17,6 +17,8 @@ class GamesController < ApplicationController
 
   def update
     raise ActionController::RoutingError.new('Not Found') unless request.xhr?
+    
+    @game = Rails.cache.read("games/#{params[:id]}")
 
     render json: update_game
   end
@@ -24,8 +26,12 @@ class GamesController < ApplicationController
   private
 
   def update_game
-    @game.doors.last.attack(Action.new(id: params[:selected].split('_')[0],
-                                       type: params[:selected].split('_')[1]))
-    Rails.cache.read("games/#{params[:id]}")
+    @game.doors.last.attack(Action.new(id: params[:selected].split('_')[1].to_i,
+                                       type: params[:selected].split('_')[0].to_sym))
+    game_state = Rails.cache.read("games/#{params[:id]}")
+
+    ActionCable.server.broadcast "game_#{params[:id]}", game_state
+
+    game_state
   end
 end
