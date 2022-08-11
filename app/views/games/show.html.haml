@@ -14,4 +14,4 @@
   .hand
     - @game.players.first.hand.each do |card|
       .card{ class: "card-#{card.type}", data: { id: "#{card.type}_#{card.id}" } }
-        = card.id
+        = image_tag("#{card.type}.svg")
